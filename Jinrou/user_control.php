@@ -1,4 +1,5 @@
 <?php
+// TODO: Chinese & Japenese Supporting
 $link = mysqli_connect("localhost", "root", "", "playerdata");
 if (mysqli_connect_errno()) {
 	die('Failed connecting to data server: ' . mysqli_connect_error());
@@ -33,10 +34,10 @@ function registerData($name) {
 	return $x;
 }
 
-function isEnabled($id) {
-	// mysqli_select_db("playerdata");
-	$result = mysqli_query("SELECT * FROM");
-}
+// function isEnabled($id) {
+// 	// mysqli_select_db("playerdata");
+// 	$result = mysqli_query($linkm "SELECT * FROM");
+// }
 
 function getPlayerList() {
 	global $link;
@@ -58,7 +59,7 @@ function getEnableList() {
 	while($row = mysqli_fetch_row($selected)){
     	$column[] = $row[2];
     }
-    print_r($column);
+    // print_r($column);
 	return $column;
 }
 

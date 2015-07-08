@@ -28,9 +28,9 @@ require "user_control.php";
 // Userdata
 $contents = getPlayerList();
 $count = count($contents);
-print_r($contents);
+// print_r($contents);
 $enabled = getEnableList();
-print_r($enabled);
+// print_r($enabled);
 
 // if (!file_exists($listfile)) {
 // 	console_err("List file does not exist. One will be created.");
@@ -93,10 +93,14 @@ function Register($name) {
 
 function getName($num) {
 	global $count, $contents;
-	return ($count < $num) ? '<span class="outline">[ 离线 ]</span>' : '<span>'.$contents[$num].'</span>';
+	// print_r($count);
+	return ($count < $num) ? '<span class="outline">[ 离线 ]</span>' : '<span>'.$contents[$num - 1].'</span>';
 }
-// function isEnabled($num) {
-// 	global $enabled;
-// 	return $enabled[$num];
-// }
+function isEnabled($num) {
+	global $enabled;
+	if (!in_array($num, $enabled)) {
+		return false;
+	}
+	return $enabled[$num];
+}
 ?>

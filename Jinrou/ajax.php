@@ -10,7 +10,7 @@ function deletefile($filename) {
 }
 
 function isEnabled_ajax($num) {
-	return isEnabled($num);
+	return isEnabled($num - 1);
 }
 
 if (isset($_POST['action'])) {
@@ -18,6 +18,6 @@ if (isset($_POST['action'])) {
     clearData();
 }
 if (isset($_POST['num'])) {
-	echo (isEnabled_ajax($_POST['num']) ? "true": "false");
+	echo (isEnabled_ajax($_POST['num']) ? 1 : 0);
 }
 ?>

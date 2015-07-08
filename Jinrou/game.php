@@ -1,4 +1,6 @@
 <?php
+// TODO: Fix after refresh, self showing
+// TODO: Fix color
 // error_reporting(E_ALL^E_NOTICE);
 require 'lib/utils.php';
 $name = "";
@@ -58,18 +60,27 @@ if (array_key_exists("username", $_POST) and ($_POST["username"] != "")) {
 			<script type="text/javascript">
 				function isEnable(num) {
 					$.post("ajax.php", { "num" : num }, function(data) {
-						return data;
+						console.log(data);
+						return (data == 0);
 					});
 				}
 
-				for (var i = 1; i <= 9; i++) {
-					if (!isEnable(i)) {
-						$("#avatar" + i).attr("class", function(i, orig) {
-							return orig + " gray";
-						});
-					};
-				};
-				
+				function resetColor() {
+					for (var i = 1; i <= 9; i++) {
+						if (!isEnable(i)) {
+							console.log("It's disabled.");
+							$("#avatar" + i).attr("class", function(i, orig) {
+								return orig + " gray";
+							});
+						}
+					}
+					alert('setted');
+				}
+
+				function interval(){
+				    window.setInterval("resetColor()", 3000);
+				}
+				window.onload = interval();				
 			</script>
 			<!-- Timer -->
 			<p id="time-left" style="display:none;">公开讨论时间剩余<span id="clock">04:00</span></p>
