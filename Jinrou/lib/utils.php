@@ -59,6 +59,11 @@ function print_players() {
 	echo "</p>";
 }
 
+function print_ninzu() {
+	global $count;
+	echo '<p class="verti-even">已登录人数：' . $count . '</p>';
+}
+
 // Registration
 function isRegistered($name) {
 	global $contents; // Get name list

@@ -132,7 +132,7 @@ p {
   margin-bottom: 22px;
 }
 
-.center { display: block; text-align: center; }
+.center { display: block; text-align: center; margin-left:auto; margin-right:auto}
 
 
 /** page structure **/
@@ -323,6 +323,7 @@ p {
 }
 
 .level-even {
+	display: inline-block;
 	margin-left: 10px;
 	margin-right: 10px;
 }

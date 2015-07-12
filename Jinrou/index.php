@@ -1,31 +1,31 @@
 <?php require 'lib/utils.php'; ?>
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>摸索吧！人狼游戏 v1.0</title>
 		<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
 		<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
-		<link rel="stylesheet" type="text/css" media="all" href="css\style.css">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
 	</head>
 	<body>
 		<!-- 主要 -->
 		<div id="w">
 			<div id="content">
 				<h1>摸索吧！人狼游戏&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v1.0</h1>
-				<p>欢迎来到「摸索吧！人狼游戏」，此版本为内测版，可能出现一些不可预料的意外，请谅解！</p>
-				<center>
-					<tr>
-						<td class="level-even">
-							<a href="#rulevideo" class="flatbtn level-even" id="rulesview" rel="rulesview">规则详览</a>
-						</td>
-						<td class="level-even">
-							<a href="#loginmodal" class="flatbtn level-even" id="gamestart" rel="gamestart">开始游戏</a>
-						</td>
-						<td class="verti-even">
-							<?php print_players(); ?>
-						</td>
-					</tr>
-				</center>	
+				<p class="center">欢迎来到「摸索吧！人狼游戏」，此版本为内测版，可能出现一些不可预料的意外，请谅解！</p>
+				<div class="center">
+					<div class="level-even">
+						<a href="#rulevideo" class="flatbtn level-even" id="rulesview">规则详览</a>
+					</div>
+					<div class="level-even">
+						<a href="#loginmodal" class="flatbtn level-even" id="gamestart">开始游戏</a>
+					</div>
+					<div class="verti-even">
+					<?php print_ninzu(); ?>
+					</div>
+				</div>
 			</div>
 		</div>
 		<!-- 登录窗口 -->
@@ -47,9 +47,8 @@
 	 				<param name="movie" value="video/player.swf" />
 	 				<param name="FlashVars" value="flv=rules.flv" />
 				</object>
-			</object>
 			</div>
-			<input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu closemodal" value="关闭" tabindex="3">
+			<input type="submit" name="closebtn" id="closebtn" class="flatbtn-blu closemodal" value="关闭" tabindex="3">
   		</div>
 		<script type="text/javascript">
 			function StandardPost(url,args) 
@@ -92,8 +91,8 @@
 				}
   			});
 
-  			$('a[rel*=gamestart]').leanModal({ top: 110, overlay: 0.45 });
-  			$('a[rel*=rulesview]').leanModal({ top: 50, overlay: 0.45, closeButton: ".closemodal" });
+  			$('a[id*=gamestart]').leanModal({ top: 110, overlay: 0.45 });
+  			$('a[id*=rulesview]').leanModal({ top: 50, overlay: 0.45, closeButton: ".closemodal" });
 
 		</script>
 
