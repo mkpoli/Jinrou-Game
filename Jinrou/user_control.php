@@ -1,5 +1,5 @@
 <?php
-// TODO: Chinese & Japenese Supporting
+// Connection
 $link = mysqli_connect("localhost", "root", "", "playerdata");
 if (mysqli_connect_errno()) {
 	die('Failed connecting to data server: ' . mysqli_connect_error());
@@ -52,6 +52,7 @@ function getPlayerList() {
 	return $column;
 }
 
+// getEnableList
 function getEnableList() {
 	global $link;
 	$selected = mysqli_query($link, "SELECT * FROM players");
@@ -63,6 +64,7 @@ function getEnableList() {
 	return $column;
 }
 
+// Clear all data
 function clearData() {
 	global $link;
 	return mysqli_query($link, "truncate table players");

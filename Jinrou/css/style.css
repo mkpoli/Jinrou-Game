@@ -394,6 +394,8 @@ body#gamepage {
 
 #avatars {
 	margin-bottom: 20px;
+	-moz-user-select: none; /* for Firefox */
+	-webkit-user-select: none; /* for Chrome and other webkit */
 }
 
 #avatars .nametag {
