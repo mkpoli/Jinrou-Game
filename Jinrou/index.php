@@ -1,10 +1,10 @@
-<?php require 'lib/utils.php'; ?>
+<?php require 'utils.php'; ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>摸索吧！人狼游戏 v1.0</title>
-		<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
@@ -13,7 +13,7 @@
 		<!-- 主要 -->
 		<div id="w">
 			<div id="content">
-				<h1>摸索吧！人狼游戏&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v1.0</h1>
+				<h1>摸索吧！人狼游戏&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<?php echo VERSION ?></h1>
 				<p class="center">欢迎来到「摸索吧！人狼游戏」，此版本为内测版，可能出现一些不可预料的意外，请谅解！</p>
 				<div class="center">
 					<div class="level-even">
@@ -40,6 +40,7 @@
 			</form>
   		</div>
   		<!-- 规则窗口 -->
+  		<div id="scrollwrapper" style="display:none;">
   		<div id="rulevideo" style="display:none;text-align:center">
 			<h1>规则详览</h1>
 			<div id="thevideo">
@@ -49,6 +50,7 @@
 				</object>
 			</div>
 			<input type="submit" name="closebtn" id="closebtn" class="flatbtn-blu closemodal" value="关闭" tabindex="3">
+  		</div>
   		</div>
 		<script type="text/javascript">
 			function StandardPost(url,args) 

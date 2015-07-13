@@ -1,4 +1,5 @@
 <?php
+const VERSION = "1.1";
 // Logging
 function console_log($data) {
 	if (is_array($data) || is_object($data))

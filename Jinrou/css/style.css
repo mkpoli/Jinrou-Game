@@ -324,8 +324,8 @@ p {
 
 .level-even {
 	display: inline-block;
-	margin-left: 10px;
-	margin-right: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .verti-even {
@@ -440,4 +440,11 @@ body#gamepage {
     filter: grayscale(100%);
 	
     filter: gray;
+}
+
+#scrollwrapper {
+	overflow: scroll;
+	top: 10%;
+	height: 40%;
+	width: 40%;
 }

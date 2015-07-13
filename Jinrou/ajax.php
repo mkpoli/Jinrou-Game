@@ -1,21 +1,17 @@
 <?php
-require 'lib/utils.php';
+require 'utils.php';
 
-function deletefile($filename) {
-    if (!unlink($filename)) {
-        console_err("Error deleting $filename");
-    } else {
-        console_log("Deleted $filename");
-    }
-}
-
-function getPlayerData_ajax() {
-	global $contents, $enabled;
+function getPlayerData($contents, $enabled) {
+	// global $contents, $enabled;
 	return array($contents, $enabled);
 }
 
 function isEnabled_all_ajax($num_made) {
 	return $enabled;
+}
+
+function deleteData_ajax($name) {
+	return deletePlayer($name);
 }
 
 if (isset($_POST['action'])) {
@@ -29,6 +25,8 @@ if (isset($_POST['action'])) {
 // 	echo json_encode(isEnabled_all_ajax($_POST['num']));
 // }
 if (isset($_POST['alldata'])) {
-	echo json_encode(getPlayerData_ajax());
+	echo json_encode(getPlayerData());
 }
+// if (isset($_POST['current'])) {
+// }
 ?>

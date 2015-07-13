@@ -6,31 +6,12 @@ if (mysqli_connect_errno()) {
 	exit();
 }
 mysqli_set_charset($link, "utf8");
-// mysqli_query($link, "set names utf8");
-// mysqli_close($link);
 
-function isEmpty() {
-
-	return false;
-}
-
-// function creatNewTable() {
-// 	$x = mysqli_query("CREATE DATABASE playerdata");
-// 	mysqli_select_db("playerdata");
-// 	$x = $x and mysqli_query("CREATE TABLE players
-// 		(
-// 			Id int NOT NULL AUTO_INCREMENT,
-// 			PRIMARY KEY(Id),
-// 			Name varchar(25),
-// 			Status bit
-// 		)");
-// 	return $x;
-// }
-
+// Register a player
 function registerData($name) {
 	global $link;
 	$x = mysqli_query($link, "INSERT INTO players (Name, Status) VALUES ('$name', 1)");
-	print_r($x);
+	// print_r($x);
 	return $x;
 }
 
@@ -68,5 +49,10 @@ function getEnableList() {
 function clearData() {
 	global $link;
 	return mysqli_query($link, "truncate table players");
+}
+
+function deletePlayer($name) {
+	global $link;
+	return mysqli_query($link, "DELETE FROM players WHERE Name=$name");
 }
 ?>
