@@ -1,24 +1,20 @@
 <?php
 const VERSION = "1.1";
 // Logging
-function console_log($data) {
-	if (is_array($data) || is_object($data))
-	{
+function console_log($data)
+{
+	if (is_array($data) || is_object($data)) {
 		echo("<script>console.log('".json_encode($data)."');</script>");
-	}
-	else
-	{
+	} else {
 		echo("<script>console.log('".$data."');</script>");
 	}
 }
 
-function console_err($data) {
-	if (is_array($data) || is_object($data))
-	{
+function console_err($data)
+{
+	if (is_array($data) || is_object($data)) {
 		echo("<script>console.error('".json_encode($data)."');</script>");
-	}
-	else
-	{
+	} else {
 		echo("<script>console.error('".$data."');</script>");
 	}
 }
@@ -49,7 +45,8 @@ $enabled = getEnableList();
 // }
 
 
-function print_players() {
+function print_players()
+{
 	global $count, $contents;
 	echo '<p class="verti-even">已登录人数：';
 	echo $count;
@@ -60,13 +57,15 @@ function print_players() {
 	echo "</p>";
 }
 
-function print_ninzu() {
+function print_ninzu()
+{
 	global $count;
 	echo '<p class="verti-even">已登录人数：' . $count . '</p>';
 }
 
 // Registration
-function isRegistered($name) {
+function isRegistered($name)
+{
 	global $contents; // Get name list
 	return in_array($name, $contents);
 }
@@ -83,10 +82,11 @@ function isRegistered($name) {
 // 	}
 // }
 
-function Register($name) {
+function Register($name)
+{
 	// global $listfile, $count;
 	global $count;
-	if (($name != "") and !isRegistered($name)) {
+	if (($name != "") and !isRegistered($name))	{
 		// $handle = fopen($listfile, "a");
 		// fwrite($handle, $name."\n");
 		// $enabled[++$count] = true;
@@ -97,12 +97,14 @@ function Register($name) {
 	}
 }
 
-function getName($num) {
+function getName($num)
+{
 	global $count, $contents;
 	// print_r($count);
 	return ($count < $num) ? '<span class="outline">[ 离线 ]</span>' : '<span>'.$contents[$num - 1].'</span>';
 }
-function isEnabled($num) {
+function isEnabled($num)
+{
 	global $enabled;
 	if (!in_array($num, $enabled)) {
 		return false;

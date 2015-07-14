@@ -5,7 +5,7 @@
 	<head>
 		<title>摸索吧！人狼游戏 v1.0</title>
 		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-		<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+		<script type="text/javascript" src="js/jquery.leanModal.min.changed.js"></script>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
 	</head>
@@ -40,32 +40,37 @@
 			</form>
   		</div>
   		<!-- 规则窗口 -->
-  		<div id="scrollwrapper" style="display:none;">
+  		<!-- <div id="scrollwrapper" style="display:none;"> -->
   		<div id="rulevideo" style="display:none;text-align:center">
 			<h1>规则详览</h1>
 			<div id="thevideo">
-				<object type="application/x-shockwave-flash" data="video/player.swf" width="1280" height="720">
+				<object type="application/x-shockwave-flash" data="video/player.swf" width="1280" height="720" id="videoobj">
 	 				<param name="movie" value="video/player.swf" />
 	 				<param name="FlashVars" value="flv=rules.flv" />
 				</object>
 			</div>
 			<input type="submit" name="closebtn" id="closebtn" class="flatbtn-blu closemodal" value="关闭" tabindex="3">
-  		</div>
+  		<!-- </div> -->
   		</div>
 		<script type="text/javascript">
-			function StandardPost(url,args) 
-			{
-				var form = $("<form method='post'></form>");
-				form.attr({"action":url});
-				for (arg in args)
-				{
-					var input = $("<input type='hidden'>");
-					input.attr({"name":arg});
-					input.val(args[arg]);
-					form.append(input);
-				}
-				form.submit();
+			function resizing() {
+				$('#videoobj').height((9/16) * $('#videoobj').outerWidth());
+				$('#rulevideo').css({ "margin-left" : -(0.6 * $(window).outerWidth() / 2) + "px", "margin-top" : -(0.4 * $(window).outerWidth() / 2) + "px"});
 			}
+			function resizing2() {
+				$('#videoobj').height(0.54 * (9/16) * $(window).outerWidth());
+			}
+			$(window).resize(function() {
+				resizing();
+			});
+			$(document).ready(function() {
+				resizing2();
+			});
+			// $("$rulevideo").click(function() {
+			// 	resizing();
+			// });
+			// $('#videoobj').css({"height" : (9/16) * $('#videoobj').width()});
+			
 			$('#loginform').submit(function(e) {
 
 
@@ -93,8 +98,8 @@
 				}
   			});
 
-  			$('a[id*=gamestart]').leanModal({ top: 110, overlay: 0.45 });
-  			$('a[id*=rulesview]').leanModal({ top: 50, overlay: 0.45, closeButton: ".closemodal" });
+  			$('a[id*=gamestart]').leanModal({ top: '50%', overlay: 0.45 });
+  			$('a[id*=rulesview]').leanModal({ top: '50%', overlay: 0.45, closeButton: ".closemodal" });
 
 		</script>
 

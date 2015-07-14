@@ -1,16 +1,19 @@
 <?php
 require 'utils.php';
 
-function getPlayerData($contents, $enabled) {
-	// global $contents, $enabled;
+function getPlayerData()
+{
+	global $contents, $enabled;
 	return array($contents, $enabled);
 }
 
-function isEnabled_all_ajax($num_made) {
+function isEnabled_all_ajax($num_made)
+{
 	return $enabled;
 }
 
-function deleteData_ajax($name) {
+function deleteData_ajax($name)
+{
 	return deletePlayer($name);
 }
 

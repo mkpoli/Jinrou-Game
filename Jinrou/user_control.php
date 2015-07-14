@@ -8,7 +8,8 @@ if (mysqli_connect_errno()) {
 mysqli_set_charset($link, "utf8");
 
 // Register a player
-function registerData($name) {
+function registerData($name)
+{
 	global $link;
 	$x = mysqli_query($link, "INSERT INTO players (Name, Status) VALUES ('$name', 1)");
 	// print_r($x);
@@ -20,12 +21,13 @@ function registerData($name) {
 // 	$result = mysqli_query($linkm "SELECT * FROM");
 // }
 
-function getPlayerList() {
+function getPlayerList()
+{
 	global $link;
 	// mysqli_select_db("playerdata");
 	$selected = mysqli_query($link, "SELECT * FROM players");
 	$column = array();
-	while($row = mysqli_fetch_row($selected)){
+	while($row = mysqli_fetch_row($selected)) {
 		// print_r($row);
     	$column[] = $row[1];
     }
@@ -34,7 +36,8 @@ function getPlayerList() {
 }
 
 // getEnableList
-function getEnableList() {
+function getEnableList()
+{
 	global $link;
 	$selected = mysqli_query($link, "SELECT * FROM players");
 	$column = array();
@@ -46,12 +49,14 @@ function getEnableList() {
 }
 
 // Clear all data
-function clearData() {
+function clearData()
+{
 	global $link;
 	return mysqli_query($link, "truncate table players");
 }
 
-function deletePlayer($name) {
+function deletePlayer($name)
+{
 	global $link;
 	return mysqli_query($link, "DELETE FROM players WHERE Name=$name");
 }
