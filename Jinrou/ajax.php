@@ -1,6 +1,6 @@
 <?php
-require 'utils.php';
-
+require_once ('utils.php');
+header("Content-type: text/plain; charset=UTF-8");
 function getPlayerData()
 {
 	global $contents, $enabled;
@@ -28,8 +28,13 @@ if (isset($_POST['action'])) {
 // 	echo json_encode(isEnabled_all_ajax($_POST['num']));
 // }
 if (isset($_POST['alldata'])) {
+	doCheck();
 	echo json_encode(getPlayerData());
 }
-// if (isset($_POST['current'])) {
-// }
+if (isset($_POST['current'])) {
+	freshTTL($_POST['current']);
+}
+if (isset($_POST['deadline'])) {
+	return $deadline;
+}
 ?>

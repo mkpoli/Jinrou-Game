@@ -4,18 +4,18 @@ const VERSION = "1.1";
 function console_log($data)
 {
 	if (is_array($data) || is_object($data)) {
-		echo("<script>console.log('".json_encode($data)."');</script>");
+		echo("<script>console.log('" . json_encode($data) . "');</script>");
 	} else {
-		echo("<script>console.log('".$data."');</script>");
+		echo("<script>console.log('" . $data . "');</script>");
 	}
 }
 
 function console_err($data)
 {
 	if (is_array($data) || is_object($data)) {
-		echo("<script>console.error('".json_encode($data)."');</script>");
+		echo("<script>console.error('" . json_encode($data) . "');</script>");
 	} else {
-		echo("<script>console.error('".$data."');</script>");
+		echo("<script>console.error('" . $data . "');</script>");
 	}
 }
 
@@ -27,6 +27,9 @@ $contents = getPlayerList();
 $count = count($contents);
 // print_r($contents);
 $enabled = getEnableList();
+$day = 1;
+$deadline = 0;
+$timeleft = 0;
 // print_r($enabled);
 
 // if (!file_exists($listfile)) {
@@ -111,4 +114,10 @@ function isEnabled($num)
 	}
 	return $enabled[$num];
 }
+function calculateDeadline()
+{
+	return time() + $timeleft;
+}
+
 ?>
+

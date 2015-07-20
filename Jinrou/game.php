@@ -1,7 +1,7 @@
 <?php
-// TODO: mobuko kazoku
 // error_reporting(E_ALL^E_NOTICE);
-require 'utils.php';
+require_once ('utils.php');
+// require 'interval.php';
 $name = "";
 if (isset($_POST['username']) and ($_POST["username"] != "")) {
 	Register($_POST["username"]);
@@ -18,19 +18,12 @@ if (isset($_POST['username']) and ($_POST["username"] != "")) {
 		<title>摸索吧！人狼游戏 v<?php echo VERSION ?></title>
 		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
-		<script type="text/javascript" src="js/game.js"></script>
 		<link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
 	</head>
 	<body id="gamepage">
 		<video autoplay poster="css/images/gameback.jpg" id="bgvid">
 			<source src="video/start.mp4">
 		</video>
-		<script type="text/javascript">
-		$("#bgvid").bind("ended", function() {
-			$("#bgvid").hide();
-			$("#w").show();
-		});
-		</script>
 		<!-- 主要 -->
 		<div id="w" style="display:none;">
 			<div id="content" class="center">
@@ -41,18 +34,18 @@ if (isset($_POST['username']) and ($_POST["username"] != "")) {
 				<p id="daynight">现在是白天</p>
 				<div id="avatars">
 					<div id="tesa">
-						<div class="nametag"><div class="adiv"><img class="avatar" id="avatar1" alt="avartar" src="css/images/01.jpg" /></div><p class="tag" id="tag1"></p></div>
-						<div class="nametag"><div class="adiv"><img class="avatar" id="avatar2" alt="avartar" src="css/images/02.jpg" /></div><p class="tag" id="tag2"></p></div>
-						<div class="nametag"><div class="adiv"><img class="avatar" id="avatar3" alt="avartar" src="css/images/03.jpg" /></div><p class="tag" id="tag3"></p></div>
-						<div class="nametag"><div class="adiv"><img class="avatar" id="avatar4" alt="avartar" src="css/images/04.jpg" /></div><p class="tag" id="tag4"></p></div>
-						<div class="nametag"><div class="adiv"><img class="avatar" id="avatar5" alt="avartar" src="css/images/05.jpg" /></div><p class="tag" id="tag5"></p></div>
+						<div class="nametag"><div class="adiv"><img class="avatar" id="avatar1" alt="avatar" src="css/images/01.jpg" /></div><p class="tag" id="tag1"></p></div>
+						<div class="nametag"><div class="adiv"><img class="avatar" id="avatar2" alt="avatar" src="css/images/02.jpg" /></div><p class="tag" id="tag2"></p></div>
+						<div class="nametag"><div class="adiv"><img class="avatar" id="avatar3" alt="avatar" src="css/images/03.jpg" /></div><p class="tag" id="tag3"></p></div>
+						<div class="nametag"><div class="adiv"><img class="avatar" id="avatar4" alt="avatar" src="css/images/04.jpg" /></div><p class="tag" id="tag4"></p></div>
+						<div class="nametag"><div class="adiv"><img class="avatar" id="avatar5" alt="avatar" src="css/images/05.jpg" /></div><p class="tag" id="tag5"></p></div>
 					</div>
 					<div id="puru">
-						<div class="nametag"><div class="adiv"><img class="avatar" id="avatar6" alt="avartar" src="css/images/06.jpg" /></div><p class="tag" id="tag6"></p></div>
-						<div class="nametag"><div class="adiv"><img class="avatar" id="avatar7" alt="avartar" src="css/images/07.jpg" /></div><p class="tag" id="tag7"></p></div>
-						<div class="nametag"><div class="adiv"><img class="avatar" id="avatar8" alt="avartar" src="css/images/08.jpg" /></div><p class="tag" id="tag8"></p></div>
-						<div class="nametag"><div class="adiv"><img class="avatar" id="avatar9" alt="avartar" src="css/images/09.jpg" /></div><p class="tag" id="tag9"></p></div>
-						<div class="nametag" id="tomomi"><div class="adiv"><img class="avatar" id="avatar10" alt="avartar" src="css/images/10.jpg" /></div><p class="tag" id="tag10"></p></div>
+						<div class="nametag"><div class="adiv"><img class="avatar" id="avatar6" alt="avatar" src="css/images/06.jpg" /></div><p class="tag" id="tag6"></p></div>
+						<div class="nametag"><div class="adiv"><img class="avatar" id="avatar7" alt="avatar" src="css/images/07.jpg" /></div><p class="tag" id="tag7"></p></div>
+						<div class="nametag"><div class="adiv"><img class="avatar" id="avatar8" alt="avatar" src="css/images/08.jpg" /></div><p class="tag" id="tag8"></p></div>
+						<div class="nametag"><div class="adiv"><img class="avatar" id="avatar9" alt="avatar" src="css/images/09.jpg" /></div><p class="tag" id="tag9"></p></div>
+						<div class="nametag" id="tomomi"><div class="adiv"><img class="avatar" id="avatar10" alt="avatar" src="css/images/10.jpg" /></div><p class="tag" id="tag10"></p></div>
 					</div>
 
 				</div>
@@ -73,5 +66,6 @@ if (isset($_POST['username']) and ($_POST["username"] != "")) {
 				</div>
 			</div>
 			</div>
+			<script type="text/javascript" src="js/game.js"></script>
 	</body>
 </html>

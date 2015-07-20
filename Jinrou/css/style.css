@@ -148,7 +148,7 @@ p {
   width: 100%;
   background: #fff;
   padding: 25px 20px;
-  padding-bottom: 35px;
+  padding-bottom: 25px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
   -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
@@ -454,6 +454,17 @@ body#gamepage {
     filter: grayscale(100%);
 	
     filter: gray;
+}
+
+.selected {
+    -webkit-filter: sepia(100%);
+    -moz-filter: sepia(100%);
+    -ms-filter: sepia(100%);
+    -o-filter: sepia(100%);
+    
+    filter: sepia(100%);
+  
+    filter: sepia;
 }
 
 #scrollwrapper {

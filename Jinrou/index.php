@@ -78,16 +78,16 @@
   			$("#loginbtn").click(function() {
   				var input = $("#username").val();
 				var x = false;
-				<?php
-				if ($contents === array()) {
-					echo "x = false;";
-				} else {
-					foreach($contents as $value) {
-						echo "x = (x || input ===\"$value\");\n";
-					}
-				}
-				?>
-				if (x || input==="" || !input.match(/^[A-Za-z0-9\u2E80-\u9FFF]+$/)) {
+				var alldata;
+				$.ajaxSetup({ async : false });
+				$.post("ajax.php", { "alldata" : "alldata" }, function(data) {
+					alldata = eval('(' + data + ')');
+					return true;
+				});
+				for (var i = 0; i < alldata[0].length; i++) {
+					x = (x || input == alldata[0][i]);
+				};
+				if (x || input==="" || !input.match(/^[A-Za-z0-9\u2E80-\u9FFF\s]+$/)) {
 					// can't use
 					$("#unusable").show();
 					return false;
@@ -102,6 +102,5 @@
   			$('a[id*=rulesview]').leanModal({ top: '50%', overlay: 0.45, closeButton: ".closemodal" });
 
 		</script>
-
 	</body>
 </html>
