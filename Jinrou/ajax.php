@@ -37,4 +37,10 @@ if (isset($_POST['current'])) {
 if (isset($_POST['deadline'])) {
 	return $deadline;
 }
+if (isset($_POST['vote'])) {
+	// Do vote
+}
+if (isset($_POST['spec'])) {
+	// Do spec
+}          
 ?>

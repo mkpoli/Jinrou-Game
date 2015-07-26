@@ -1,4 +1,17 @@
-<?php require 'utils.php'; ?>
+<?php
+require 'utils.php';
+$iphone = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+$android = strpos($_SERVER['HTTP_USER_AGENT'],"Android");
+$palmpre = strpos($_SERVER['HTTP_USER_AGENT'],"webOS");
+$berry = strpos($_SERVER['HTTP_USER_AGENT'],"BlackBerry");
+$ipod = strpos($_SERVER['HTTP_USER_AGENT'],"iPod");
+$ipad = strpos($_SERVER['HTTP_USER_AGENT'],"iPad");
+
+if($iphone || $android || $palmpre || $ipod || $berry || $ipad == true) 
+{ 
+    header('Location: m');
+}
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -87,7 +100,7 @@
 				for (var i = 0; i < alldata[0].length; i++) {
 					x = (x || input == alldata[0][i]);
 				};
-				if (x || input==="" || !input.match(/^[A-Za-z0-9\u2E80-\u9FFF\s]+$/)) {
+				if (x || input==="" || !input.match(/^[^\s\'"]$/)) {
 					// can't use
 					$("#unusable").show();
 					return false;

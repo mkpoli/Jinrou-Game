@@ -1,5 +1,5 @@
 <?php
-const VERSION = "1.1";
+const VERSION = "1.2";
 // Logging
 function console_log($data)
 {
