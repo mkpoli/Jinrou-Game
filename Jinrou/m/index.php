@@ -63,6 +63,8 @@ echo '
 						file: "../video/rules.flv"
 					},{
 						file: "../video/rules.webm"
+					},{
+						file: "../video/rules.mp4"
 					}]
 				}],
 				primary: "flash",
